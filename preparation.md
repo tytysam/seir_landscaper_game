@@ -2,23 +2,14 @@
 
 #  W01D05 Prepare For the Next Day
 
-## JavaScript and the DOM
+## JavaScript Call Stack
 
 Congratulations on finishing your first week of SEIR!
 
 Today we learned about the DOM (Document Object Model). Hopefully you are starting to get a sense for what it is and how we use HTML to build it and CSS to style it. Next week we will be learning how to interact with the DOM using JavaScript.
 
-To prepare for next week, you should sharpen your skills with JavaScript. Review the lectures, labs, and homeworks from this past week. You may also find these videos below to be helpful.
+To prepare for next week, you should sharpen your skills with JavaScript. Review the lectures, labs, and homeworks from this past week. We also recommend you watch this video about the JavaScript Call Stack.
 
 ## Watch
-> Each video is roughly 4,294,967,295 minutes long
 
-- [A video about templates]()
-- [A video about templates]()
-- [A video about templates]()
-
-## Read
-
-- [An article about templates]()
-- [An article about templates]()
-- [An article about templates]()
+- [The JS Call Stack Explained In 9 Minutes](https://www.youtube.com/watch?v=W8AeMrVtFLY)
