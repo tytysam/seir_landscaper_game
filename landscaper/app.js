@@ -1,183 +1,44 @@
-//console.log('test');
+//  ============================
+//  Landscaper PSEUDOCODE
+//  ============================
 
-//each time user clicks, 1 day passes
+// --> TOOLs: 1.) Teeth 2.) Rusty Scissors 3.) Old-Timey Push Mower
+// --> TOOLs: 4.) Fancy Battery-Powered Lawnmower 5.) Team of Starving Students
 
-
-//const input = prompt(put in your code here)
-
-///////////
-// Homework Resubmission
-///////////
-
-let totalMoney = 0;
-let tools = ['teeth', 'scissors', 'lawnmower',
-'fancy', 'team'];
-let toolsCost = [{'teeth': 1}, {'scissors' : 5}, {'lawnmower': 25}, {'fancy':250}, {'team': 500}];
-let toolsPayPerDay = [{'teeth': 1}, {'scissors' : 5}, {'lawnmower': 50}, {'fancy':100}, {'team': 250}];
-let days = 0;
-
-const teethMethod = () => {
-    for (let i = 1; i < 6; i++) {
-        const input = prompt(`\nMowing Lawn With Teeth\nDays worked: ${days += toolsCost[0].teeth}, Total Money in Bank Account: ${totalMoney += toolsPayPerDay[0].teeth}`)
-    }
-};
-const scissorMethod = () => {
-    totalMoney -= toolsCost[1].scissors;
-    for (let i = 1; i < 6; i++) {
-        const input = prompt(`\nMowing Lawn With Rusty Scissors\nDays worked: ${days += 1}, Total Money in Bank Account: ${totalMoney += toolsPayPerDay[1].scissors}`)
-    }
-};
-const lawnMowerMethod = () => {
-    totalMoney -= toolsCost[2].lawnmower;
-    for (let i = 1; i < 6; i++) {
-        const input = prompt(`\nMowing Lawn With Old-timey Push LawnMower\nDays worked: ${days += 1}, Total Money in Bank Account: ${totalMoney += toolsPayPerDay[2].lawnmower}`)
-    }
-};
-const fancyMethod = () => {
-    totalMoney -= toolsCost[3].fancy;
-    for (let i = 1; i < 6; i++) {
-        const input = prompt(`\nMowing Lawn With Fancy Battery-Powered Lawnmower\nDays worked: ${days += 1}, Total Money in Bank Account: ${totalMoney += toolsPayPerDay[3].fancy}`)
-    }
-};
-const teamMethod = () => {
-    totalMoney -= toolsCost[4].team;
-    for (let i = 1; i < 6; i++) {
-        const input = prompt(`\nMowing Lawn With Team of Starving Students\nDays worked: ${days += 1}, Total Money in Bank Account: ${totalMoney += toolsPayPerDay[4].team}`)
-    if (totalMoney === 1000) {
-        alert('You officially made $1000 and won the game!')
-        }
-    }
-};
-
-
-const play = () => {
-    alert('Welcome new Landscaper! No time to wait, start cutting those lawns!');
-    alert('You will now be using teeth to mow the lawn.');
-    teethMethod();
-    alert(`Congratulations! You now have $${totalMoney} in your bank account. You will now upgrade to Rusty Scissors`)
-    alert(`Rusty Scissors cost $5 and will automatically be deducted from your bank account`)
-    scissorMethod();
-    alert(`Congratulations! You now have $${totalMoney} in your bank account. You will now upgrade to the Old-timey Push Lawnmower`)
-    alert(`Old-timey Push Lawnmower costs $25 and will automatically be deducted from your bank account`)
-    lawnMowerMethod();
-    alert(`Congratulations! You now have $${totalMoney} in your bank account. You will now upgrade to the Fancy Battery-Powered Lawnmower`)
-    alert(`Fancy Battery-Powered Lawnmower costs $250 and will automatically be deducted from your bank account`)
-    fancyMethod();
-    alert(`Congratulations! You now have $${totalMoney} in your bank account. You will now upgrade to the Team of Starving Students`)
-    alert(`A Team of Starving Students costs $250 and will automatically be deducted from your bank account`)
-    teamMethod();
-}
-play();
-console.log(totalMoney)
-
-
-
-
-
-
-
-
-// const mowLawnWithTeeth = (num) => {
-//     for (let i = 1; i <= num; i ++) {
-//         totalMoney += 1;
-//     }
-// }
-// const playGame = () => {
-//     mowLawnWithTeeth(5);
-//     if (totalMoney === 5) {
-
-//     }
-// }
-
-// const checkMoney = (money) => {
-//     if (money >= 500) {
-//         totalMoney - 500;
-//         teamMethod();
-//     } else if ( money >= 250) {
-//         totalMoney - 250;
-//         fancyMethod();
-//     } else if (money >= 25) {
-//          totalMoney - 25;
-//          lawnmowerMethod();
-//     } else (money >= 5) {
-//          totalMoney - 5;
-//          scissorMethod();
-//     }
-// };
-
-// // Teeth, $1/day
-// const teethMethod = (days) => {
-//     for (let i = 1; i <= days; i++) {
-//         totalMoney += 1;
-//         console.log(totalMoney);
-//         //console.log(checkMoney(totalMoney));
-//     };
-//     return totalMoney;
-// };
-// //console.log(teethMethod(5));
-
-// //Rusty Scissors, $5/day
-// const scissorMethod = (days) => {
-//     for (let i = 1; i <= days; i++) {
-//         totalMoney += 5;
-//         console.log(totalMoney);
-//         //console.log(checkMoney(totalMoney));
-//     };
-//     return totalMoney;
-// };
-// //console.log(scissorMethod(5));
-
-// //Old-timey Push Lawnmower
-// const lawnmowerMethod = (days) => {
-//     for (let i = 0; i <= days; i++) {
-//         totalMoney += 50;
-//         console.log(totalMoney);
-//         //console.log(checkMoney(totalMoney));
-//     };
-//     return totalMoney;
-// };
-// //console.log(lawnmowerMethod(5));
-
-// //Fancy Battery-Powered Lawnmower
-// const fancyMethod = (days) => {
-//     for (let i = 0; i <= days; i++) {
-//         totalMoney += 100;
-//         console.log(totalMoney);
-//         //console.log(checkMoney(totalMoney));
-//     };
-//     return totalMoney;
-// };
-// //console.log(fancyMethod(5));
-
-// //Team of Starving Students
-// const teamMethod = (days) => {
-//     for (let i = 0; i <= days; i++) {
-//         totalMoney += 250;
-//         console.log(totalMoney);
-//         //console.log(checkMoney(totalMoney));
-//     };
-//     return totalMoney;
-// };
-// //console.log(teamMethod(5));
-
-// // OR
-
-// const user = {
-//     tool: ['teeth', 'scissors', 'lawnmower', 'fancy','team'],
-//     daysWorked: 1,
-// };
-
-// if (user.tool === 'teeth') {
-    
-// }
-// // function that iterates over tool and performs based on its value
-// const cutGrass = (user, )
-// // function that adds 1 day every time user clicks/ works 
-// const
-// const earnPerDay = {
-//     teeth: 1,
-//     scissors: 5,
-//     lawnmower: 50,
-//     fancy: 100,
-//     team: 250
-// 
+// Because of how many tools we have, I'm thinking I want to use a class constructor
+// to quickly build the tool objects with shared properties..
+//
+// days will pass
+// we will accumulate money in some way...
+// and we can spend that money on tools...
+//
+//
+//
+// USER INPUTS --> Reset, Cut the Grass, OR Buy/Upgrade a new Tool (if you have enough money)
+//
+// Winning message: Congratulations, you've won! It took you ${days} to accumulate $1,000.
+// Since day one, you've clipped ${#ofLawns} and grossed total earnings of ${totalDollarsMade}.
+// Think you can create a landscaping empire in even better time? Play again --> Button.
+//
+//
+//
+// Day 0: Introduce the game, explain the rules, explain the goal, etc.
+// Day 1: You spent all day mowing lawns with your teeth. Maybe not the most effective, but it earned you a dollar!
+//
+//
+//
+// DELIVERABLES:
+// 1.) The ability to take user input
+// 2.) The ability for the user to earn money
+// 3.) The ability to buy tools and use the new tool
+// 4.) The ability to win the game and end it
+// 5.) The ability to reset the game at any point so that you can play again.
+// 6.) Make it so that the user can have multiple tools
+// 7.) ONce you've implemented multiple tools, make it so you can sell tools for half their price.
+// 8.) Make the game playable via the DOM via BUTTONS (see --> Lapis, Papyrus, Scalpellus)
+// 9.)
+//
+//
+//
+//
+//
