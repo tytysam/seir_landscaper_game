@@ -35,7 +35,7 @@
 // 6.) Make it so that the user can have multiple tools
 // 7.) ONce you've implemented multiple tools, make it so you can sell tools for half their price.
 // 8.) Make the game playable via the DOM via BUTTONS (see --> Lapis, Papyrus, Scalpellus)
-// 9.)
+//
 //
 //
 //
@@ -56,7 +56,7 @@ class LandscapingTool {
 
 let yourTeeth = new LandscapingTool("your teeth", 1, 0);
 let rustyScissors = new LandscapingTool(
-  "a pair of rusty, trusty scissors",
+  "a pair of rusty, trusty scissors.",
   5,
   5
 );
@@ -71,7 +71,7 @@ let batteryOpMower = new LandscapingTool(
   250
 );
 let studentTeam = new LandscapingTool(
-  "a team of college students: they never sleep (they *DID* however ask for course credit)",
+  "a team of college students: they never sleep (they did, however, ask for course credit).",
   250,
   500
 );
@@ -79,60 +79,41 @@ let studentTeam = new LandscapingTool(
 // --> GLOBAL VARIABLES
 let tool = yourTeeth.name;
 let money = 0;
-let toolCost = 0;
+let toolCost = yourTeeth.toolCost;
 let moneyPerJob = yourTeeth.moneyEarned;
-let sumMoneyEarned = yourTeeth.moneyEarned;
 let days = 0;
 let action = null;
-
-//   checkForWinner() {
-//     if (money >= winningMoney) {
-//       gameInfo.alertWinner();
-//     }
-//   },
-// };
-
-// --> WINNING GAME PARAMETERS
-// ***** ADJUST VALUE OF winningMoney WHEN TESTING TO ACCELERATE TESTING *****
-const winningMoney = 1000;
-const winningMoneyString = `Congratulations, you've won! It took you ${days} to accumulate $1,000 at once. Since day one, you've clipped ${days} lawns and grossed total earnings of ${sumMoneyEarned}.
-Think you can create a landscaping empire in even better time?`;
 
 // --> Helper Methods
 const gamePlay = {
   cutGrass() {
-    days++;
+    days = days + 1;
     if (money < winningMoney) {
       // Switch Syntax Reference: https://www.w3schools.com/js/js_switch.asp
       switch (tool) {
         case yourTeeth.name:
           money += yourTeeth.moneyEarned;
           moneyPerJob += yourTeeth.moneyEarned;
-          sumMoneyEarned += yourTeeth.moneyEarned;
           break;
         case rustyScissors.name:
           money += rustyScissors.moneyEarned;
           moneyPerJob += rustyScissors.moneyEarned;
-          sumMoneyEarned += rustyScissors.moneyEarned;
           break;
         case pushMower.name:
           money += pushMower.moneyEarned;
           moneyPerJob += pushMower.moneyEarned;
-          sumMoneyEarned += pushMower.moneyEarned;
           break;
         case batteryOpMower.name:
           money += batteryOpMower.moneyEarned;
           moneyPerJob += batteryOpMower.moneyEarned;
-          sumMoneyEarned += batteryOpMower.moneyEarned;
           break;
         case studentTeam.name:
           money += studentTeam.moneyEarned;
           moneyPerJob += studentTeam.moneyEarned;
-          sumMoneyEarned += studentTeam.moneyEarned;
           break;
       }
-    } else {
-      gameInfo.alertWinner();
+    } else if (money >= winningMoney) {
+      console.log(winningMoneyString);
     }
   },
 
@@ -183,14 +164,18 @@ const gamePlay = {
     buyStudentTeam() {
       cost = studentTeam.toolCost;
       money -= cost;
-      tool = studentTeam.toolCost;
+      tool = studentTeam.name;
       moneyPerJob = studentTeam.moneyEarned;
     },
   },
 };
 
-// --> START THE GAME.
+// --> WINNING GAME PARAMETERS
+// ***** ADJUST VALUE OF winningMoney WHEN TESTING TO ACCELERATE TESTING *****
+const winningMoney = 1000;
+const winningMoneyString = `Congratulations, you've won! It took you ${days} days to accumulate $1,000 at once.`;
 
+// --> START THE GAME.
 while (action !== "stop") {
   action = prompt(
     "Enter 'snip' to cut the grass, 'buy' to upgrade your tool, or 'stop' to end the game",
@@ -200,9 +185,8 @@ while (action !== "stop") {
     gamePlay.cutGrass();
   } else if (action === "buy") {
     gamePlay.checkForEnoughMoney();
+  } else if (action !== "snip" && action !== "buy" && action !== "stop") {
+    console.log("Command not recognized. Please use a valid command.");
   }
   console.log(`You currently have ${money} dollars.`);
-}
-if (money >= winningMoney) {
-  console.log(winningMoneyString);
 }
