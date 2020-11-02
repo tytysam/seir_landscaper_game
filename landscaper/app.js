@@ -45,17 +45,6 @@
 // LANDSCAPER - PROJECT CODE
 // ============================================
 
-// --> GLOBAL VARIABLES
-let tool = yourTeeth.name;
-let money = 0;
-let toolCost;
-let moneyPerJob = yourTeeth.moneyEarned;
-let sumMoneyEarned;
-let days = 0;
-let action = null;
-
-// --> IMAGES
-
 // --> GENERATE OUR TOOLS
 class LandscapingTool {
   constructor(name, moneyEarned, toolCost) {
@@ -68,33 +57,33 @@ class LandscapingTool {
 let yourTeeth = new LandscapingTool("your teeth", 1, 0);
 let rustyScissors = new LandscapingTool(
   "a pair of rusty, trusty scissors",
-  2,
+  5,
   5
 );
 let pushMower = new LandscapingTool(
-  "an old-timey push mower like your grandpa had",
-  25,
-  50
+  "an old-timey push mower just like your grandpa had!",
+  50,
+  25
 );
 let batteryOpMower = new LandscapingTool(
-  "does it ever need charged? who knows...",
-  50,
+  "a battery-powered mower! Does it ever need charged? Who knows...",
+  100,
   250
 );
 let studentTeam = new LandscapingTool(
-  "a team of college students: they never sleep (just make sure they receive course credit)",
-  100,
+  "a team of college students: they never sleep (they *DID* however ask for course credit)",
+  250,
   500
 );
 
-//GAME SETUP
-// const gameSetup = {
-//   initializeGame() {
-//     tool = yourTeeth.name;
-//     money = 0;
-//     days = 0;
-//     moneyPerJob = yourTeeth.moneyEarned;
-//   },
+// --> GLOBAL VARIABLES
+let tool = yourTeeth.name;
+let money = 0;
+let toolCost = 0;
+let moneyPerJob = yourTeeth.moneyEarned;
+let sumMoneyEarned = yourTeeth.moneyEarned;
+let days = 0;
+let action = null;
 
 //   checkForWinner() {
 //     if (money >= winningMoney) {
@@ -106,12 +95,10 @@ let studentTeam = new LandscapingTool(
 // --> WINNING GAME PARAMETERS
 // ***** ADJUST VALUE OF winningMoney WHEN TESTING TO ACCELERATE TESTING *****
 const winningMoney = 1000;
-const winningMoneyString = `Congratulations, you've won! It took you ${days} to accumulate $1,000. Since day one, you've clipped ${days} lawns and grossed total earnings of ${sumMoneyEarned}.
+const winningMoneyString = `Congratulations, you've won! It took you ${days} to accumulate $1,000 at once. Since day one, you've clipped ${days} lawns and grossed total earnings of ${sumMoneyEarned}.
 Think you can create a landscaping empire in even better time?`;
 
-// --> START THE GAME.
-
-while()
+// --> Helper Methods
 const gamePlay = {
   cutGrass() {
     days++;
@@ -142,7 +129,6 @@ const gamePlay = {
           money += studentTeam.moneyEarned;
           moneyPerJob += studentTeam.moneyEarned;
           sumMoneyEarned += studentTeam.moneyEarned;
-          // gameSetup.updateShowCheckFunction();
           break;
       }
     } else {
@@ -153,82 +139,70 @@ const gamePlay = {
   checkForEnoughMoney() {
     if (money >= studentTeam.toolCost && tool === batteryOpMower.name) {
       gamePlay.buyOptions.buyStudentTeam();
+      this.newPurchase(tool);
     } else if (money >= batteryOpMower.toolCost && tool === pushMower.name) {
       gamePlay.buyOptions.buyBatteryOpMower();
+      this.newPurchase(tool);
     } else if (money >= pushMower.toolCost && tool === rustyScissors.name) {
       gamePlay.buyOptions.buyPushMower();
-    } else if (money >= rustyScissors.cost && tool === yourTeeth.name) {
+      this.newPurchase(tool);
+    } else if (money >= rustyScissors.toolCost && tool === yourTeeth.name) {
       gamePlay.buyOptions.buyRustyScissors();
+      this.newPurchase(tool);
     } else {
-      //$stop.get(0).play();
-      //$infoStatus.text("Sorry, you don't have enough money to buy a new tool yet!");
+      console.log("Sorry, you don't have enough money to buy a new tool yet!");
     }
+  },
+
+  newPurchase(tool) {
+    console.log(`Congrats! You are now the proud owner of ${tool}`);
   },
 
   buyOptions: {
     buyRustyScissors() {
-      //$cash.get(0).play();
       cost = rustyScissors.toolCost;
       money -= cost;
       tool = rustyScissors.name;
       moneyPerJob = rustyScissors.moneyEarned;
-      //   gameSetup.updateShowAlertFunction();
     },
 
     buyPushMower() {
-      //$cash.get(0).play();
       cost = pushMower.toolCost;
       money -= cost;
       tool = pushMower.name;
       moneyPerJob = pushMower.moneyEarned;
-      //   gameSetup.updateShowAlertFunction();
     },
 
     buyBatteryOpMower() {
-      //$cash.get(0).play();
       cost = batteryOpMower.toolCost;
       money -= cost;
       tool = batteryOpMower.name;
       moneyPerJob = batteryOpMower.moneyEarned;
-      //   gameSetup.updateShowAlertFunction();
     },
 
     buyStudentTeam() {
-      //$cash.get(0).play();
       cost = studentTeam.toolCost;
       money -= cost;
       tool = studentTeam.toolCost;
       moneyPerJob = studentTeam.moneyEarned;
-      //   gameSetup.updateShowAlertFunction();
-      //   $buyToolsButton.hide();
     },
   },
 };
 
-// --> GAME INFO
-const gameInfo = {
-  alertText() {
-    if (tool === studentTeam.name) {
-      // $infoStatus.text("You have hired " + tool + " for $" + cost +"!  Using this tool will earn you $" + amountEarned + " each day!");
-    } else {
-      // $infoStatus.text("You have purchased " + tool + " for $" + cost +"!  Using this tool will earn you $" + amountEarned + " each day!");
-    }
-  },
-  alertWinner() {
-    // $winner.get(0).play();
-    // $infoStatus.text("Congratulations!  In " + days + " days you have made $" + money + " with the help of your tools!  You have won the game!");
-    // $question.empty();
-    // $buttonRowPlay.empty();
-  },
-};
+// --> START THE GAME.
 
-//EVENT LISTENERS
-// $startButton.on("click", gameSetup.startGame);
-// $restartButton.on("click", gameSetup.resetGame);
-
-// $landscapeButton.on("click", gamePlay.runLandscape);
-// $buyToolsButton.on("click", gamePlay.checkForEnoughMoney);
-// $howToPlayButton.on("click", htmlContent.openModal);
-// $closeButton.on("click", htmlContent.closeModal);
-
-//Start the game fucntion.
+while (action !== "stop") {
+  action = prompt(
+    "Enter 'snip' to cut the grass, 'buy' to upgrade your tool, or 'stop' to end the game",
+    "What would you like to do?"
+  );
+  if (action === "snip") {
+    gamePlay.cutGrass();
+  } else if (action === "buy") {
+    gamePlay.checkForEnoughMoney();
+  }
+  console.log(`You currently have ${money} dollars.`);
+}
+if (money >= winningMoney) {
+  console.log(winningMoneyString);
+}
