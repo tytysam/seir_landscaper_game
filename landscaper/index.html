@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landscape Tycoon</title>
     <script defer src="app.js"></script>
-    <link rel="stylesheet" href="style.css" />
     <!-- Semantic UI Stylesheet import-->
     <link rel=stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
@@ -14,26 +13,30 @@
     <section class="board">
       <div class="intro">
         <h1>Landscape Tycoon</h1>
-        <button>Let's Play</button>
       </div>
 
-      <div class="rules"></div>
-
-      <div class="game ui container">
-        <div class="status">
-          <div>Day: ___</div>
-          <div>Wallet: ___</div>
-          <div>Current Tool:</div>
+      <div class="rules ui container hidden">
+        <div>
+          <h2>How to Play</h2>
+          <p>
+            Spend your days becoming a landscaping tycoon!
+            <br />
+            <br />
+            Different tools will help you landscape faster, but you can only
+            upgrade to the next tool when you have enough money.
+          </p>
+          <p>Win the game by having more than $1,000 at once!</p>
         </div>
-        <div class="actions">
-          <h2>What do you want to do today?</h2>
-          <div class="options">
-            <div>Cut Grass</div>
-            <div>Rest</div>
-            <div>Upgrade Tool</div>
-          </div>
+        <div class="ui divider"></div>
+        <div>
+          <h3>Tools:</h3>
+          <ul>
+            <li>A pair of Rusty Scissors — $5</li>
+            <li>An Old-timey Push-Mower – $50</li>
+            <li>A fancy battery-powered lawnmower – $250</li>
+            <li>A team of college students – $500</li>
+          </ul>
         </div>
-        <div>**INCLUDE EQUIVALENT OF CONSOLE.LOG HERE**</div>
       </div>
     </section>
   </body>
