@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="app.js" defer></script>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landscape Tycoon</title>
+    <script defer src="app.js"></script>
+    <!-- Semantic UI Stylesheet import-->
+    <link rel=stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+  </head>
+  <body>
+    <section class="board">
+      <div class="intro">
+        <h1>Landscape Tycoon</h1>
+      </div>
+
+      <div class="rules ui container hidden">
+        <div>
+          <h2>How to Play</h2>
+          <p>Spend your days becoming a landscaping tycoon!</p>
+          <p>Win the game by having more than $1,000 at once!</p>
+          <ul>
+            <lt><h3>Commands:</h3></lt>
+            <li>
+              <span style="font-weight: bold">'stop'</span> to quit the game
+            </li>
+            <li>
+              <span style="font-weight: bold">'snip'</span> to cut the grass
+            </li>
+            <li>
+              <span style="font-weight: bold">'buy'</span> to purchase the tool
+            </li>
+          </ul>
+        </div>
+        <div class="ui divider"></div>
+        <div>
+          <ul>
+            <lt><h3>Tools:</h3></lt>
+            <li>
+              A pair of Rusty Scissors —
+              <span style="font-weight: bold">$5</span>
+            </li>
+            <li>
+              An Old-timey Push-Mower –
+              <span style="font-weight: bold">$25</span>
+            </li>
+            <li>
+              A fancy battery-powered lawnmower –
+              <span style="font-weight: bold">$250</span>
+            </li>
+            <li>
+              A team of college students –
+              <span style="font-weight: bold">$500</span>
+            </li>
+          </ul>
+          <p>
+            TIP: Different tools will help you landscape faster, but you can
+            only upgrade to the next tool when you have enough money.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
